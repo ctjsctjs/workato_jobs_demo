@@ -28,16 +28,22 @@ function loadData(){
 
       var id = item['id'];
       var title = item['title'];
+      var location = item['location']['name'];
       var url = item['absolute_url'];
       var link = baseURL  + '?gh_jid=' + id;
 
 
-      var content = '<li>'
+      var content = '<a href="'   + link   + '">'
+      + '<li>'
+      + '<span class="job-title">'
       + title
-      + '<a href="' + link + '"/a>' + 'Apply' + '</a>'
+      + '</span>'
+      + '<span class="job-location">'
+      + location
+      + '</span>'
       + '</li>'
-
-      $( ".job_list_ul" ).append(content);
+      + '</a>'
+      $( ".job-list-ul" ).append(content);
     });
   });
 }
@@ -45,3 +51,15 @@ function loadData(){
     $('#banner-text').html(bannerText);
     $('#intro-text').html(introText);
 }
+
+$(function () {
+  $(document).scroll(function () {
+	  var $nav = $(".nav-bg");
+    var $content = $(".nav-link");
+    var $logo = $(".workato-logo");
+
+	  $nav.toggleClass('scrolled-bg', $(this).scrollTop() > $nav.height());
+    $content.toggleClass('scrolled-content', $(this).scrollTop() > $nav.height());
+    $logo.toggleClass('scrolled-logo', $(this).scrollTop() > $nav.height());
+	});
+});

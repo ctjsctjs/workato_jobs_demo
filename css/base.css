@@ -11,10 +11,30 @@ body{
 
 .nav-bar{
   position: fixed;
-  top:0;
   width: 100%;
   z-index: 10;
   height:58px;
+
+}
+
+.nav-bg{
+  position: absolute;
+  background-color: none;
+  top:6px;
+  width: 100%;
+  height:100%;
+  z-index: -5;
+  transition: 100ms linear;
+}
+
+.scrolled-bg{
+  background-color: white;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+  top:0;
+}
+
+.scrolled-logo{
+  opacity: 0;
 }
 
 .logo-wrapper{
@@ -23,6 +43,12 @@ body{
 
 .workato-logo{
   height:24px;
+}
+
+.workato-logo-color{
+  height:24px;
+  position: absolute;
+  z-index:-1;
 }
 
 .nav-bar ul{
@@ -42,6 +68,24 @@ body{
   -webkit-box-align:center;
   padding: 0 15px;
 
+  transition: 100ms linear;
+}
+
+.nav-link{
+  color:#efefef;
+  transition: 160ms linear;
+}
+
+.nav-link:hover{
+  color:#afafaf;
+}
+
+.scrolled-content{
+  color:#121212;
+}
+
+.scrolled-content:hover{
+  color:#afafaf;
 }
 
 .return-link{
@@ -129,4 +173,39 @@ body{
 
 .wrapper-white{
   background-color:white;
+}
+
+.job-list-ul{
+
+}
+
+.job-list-ul li{
+  background-color: #fafafa;
+  margin-bottom: 12px;
+  padding: 24px;
+  font-size:24px;
+}
+
+.job-list-ul a li{
+  color:#525252;
+  display:flex;
+
+  transition: 160ms ease;
+}
+
+.job-list-ul a li:hover{
+  border-left: 4px solid #27989f;
+
+  transition: 200ms ease;
+}
+
+.job-title{
+}
+
+.job-location{
+  font-size:16px;
+  margin-left: auto;
+  display:flex;
+  -webkit-box-align: center;
+  align-items: center;
 }
