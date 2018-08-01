@@ -25,5 +25,4 @@ function loadData(){
       $( ".job_list_ul" ).append(content);
     });
   });
-
 }
