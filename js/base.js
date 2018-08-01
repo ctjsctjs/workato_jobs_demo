@@ -1,5 +1,5 @@
-//var baseURL = 'https://ctjsctjs.github.io/workato_jobs_demo/';
-var baseURL = '../apply/';
+var baseURL = 'https://ctjsctjs.github.io/workato_jobs_demo/apply/';
+//var baseURL = '../apply/';
 var APIendpoint = 'https://boards-api.greenhouse.io/v1/boards/workato/jobs';
 //var APIendpoint = 'https://boards-api.greenhouse.io/v1/boards/workatodemo/jobs';
 
