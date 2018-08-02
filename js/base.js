@@ -62,18 +62,18 @@ function loadData(){
         //Add location option in filter if has not already been added
         if (locationList.indexOf(location) === -1){
           locationList.push(location);
-          $('#locFilter').append($('<option>', {
-            value:location,
-            text:location
+          $('#locFilter').append($('<li>', {
+            text:location,
+            class:'filter-loc'
           }));
         }
       });
 
       //Add depterment into options if there are valid jobs
       if (dep['jobs'].length > 0){
-        $('#depFilter').append($('<option>', {
-          value:departmentName,
-          text:departmentName
+        $('#depFilter').append($('<li>', {
+          text:departmentName,
+          class:'filter-dep'
         }));
       }
     });
@@ -85,25 +85,73 @@ function loadText(){
     $('#intro-text').html(introText);
 }
 
-function filter(){
+$(function () {
+  $(document).on('click', ".filter-form li", function() {
 
-  var selectedDep=$('#depFilter').find('option:selected').val();
-  var selectedLoc=$('#locFilter').find('option:selected').val();
+    var allLocLabel = 'All Offices';
+    var allDepLabel = 'All Departments';
 
-  $('.job-a').each(function() {
+    var value = $(this).html();
+    var filterClass =  $(this).attr('class');
 
-    var elementDep = $(this).find('.job-dep').html();
-    var elementLoc = $(this).find('.job-location').html();
+    var activeLocElement;
+    var activeDepElement;
 
-    if ((elementDep==selectedDep || selectedDep=='all')&&
-      (elementLoc==selectedLoc || selectedLoc=='all')){
-      $(this).parent().removeClass('hide-job');
-    } else {
-      $(this).parent().addClass('hide-job');
+    var activeLoc;
+    var activeDep;
+
+    console.log('filterClass: ' + filterClass);
+
+    $('.filter-loc').each(function() {
+      if ($(this).hasClass('active')){
+        activeLoc = $(this).html();
+        activeLocElement = $(this);
+        console.log('oldActiveLOC: ' + activeLoc);
+
+      }
+    })
+    $('.filter-dep').each(function() {
+      if ($(this).hasClass('active')){
+        activeDep = $(this).html();
+        activeDepElement = $(this);
+        console.log('OldactiveDep: ' + activeDep);
+      }
+    })
+
+    if(filterClass == 'filter-loc'){
+      console.log('toggle filter-loc');
+      activeLoc = value;
+      $(this).addClass('active');
+      $(activeLocElement).removeClass('active');
+
+    } else if (filterClass == 'filter-dep'){
+      console.log('toggle filter-dep');
+      activeDep = value;
+      $(this).addClass('active');
+      $(activeDepElement).removeClass('active');
     }
 
+    console.log('value: ' + value);
+    console.log('activeLocElement: ' + activeLocElement);
+    console.log('activeDepElement: ' + activeDepElement);
+    console.log('activeLoc: ' + activeLoc);
+    console.log('activeDep: ' + activeDep);
+
+    $('.job-a').each(function() {
+
+      var elementDep = $(this).find('.job-dep').html();
+      var elementLoc = $(this).find('.job-location').html();
+
+      if ((elementDep==activeDep || activeDep==allDepLabel)&&
+        (elementLoc==activeLoc || activeLoc==allLocLabel)){
+        $(this).parent().removeClass('hide-job');
+      } else {
+        $(this).parent().addClass('hide-job');
+      }
+
+    })
   })
-}
+});
 
 $(function () {
   $(document).scroll(function () {

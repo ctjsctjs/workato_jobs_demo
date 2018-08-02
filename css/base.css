@@ -152,13 +152,13 @@ body{
 .section-header{
   text-align: center;
   font-size:24px;
-  color:#525252;
+  color:#121212;
   font-weight:700;
   margin-bottom: 48px;
 }
 
 .section-content{
-  color:#525252;
+  color:#121212;
   text-align: center;
   line-height: 1.8;
 }
@@ -181,23 +181,25 @@ body{
 
 
 .job-list-ul li{
-  background-color: #fafafa;
-  margin-bottom: 12px;
+  border-top: 1px solid #efefef;
 }
 
 .job-list-ul li a{
-  padding: 24px;
+  padding: 36px;
   font-size:24px;
-  color:#525252;
+  color:#121212;
+  display: flex;
 }
 
-.job-list-ul li:hover{
-  border-left: 4px solid #27989f;
+.job-list-ul li:hover > a{
+  /*border-left: 4px solid #27989f;*/
+  color:#27989f;
 
   transition: 160ms ease;
 }
 
 .job-title{
+  display:flex;
 }
 
 .job-location{
@@ -209,7 +211,40 @@ body{
 }
 
 #job-container{
-  min-height:50vh;
+  min-height:100vh;
+}
+
+.filter-form{
+
+}
+
+.filter-form li{
+  cursor: pointer;
+  padding: 16px 0;
+  font-size:16px;
+  color: #27989f;
+
+  transition: 160ms linear;
+}
+
+.filter-form li:hover{
+  color: #3fc3cc;
+
+  transition: 160ms linear;
+}
+
+.filter-form .active{
+  color:#3fc3cc;
+  border-left: 2px solid #3fc3cc;
+  padding-left:24px;
+  transition: 160ms linear;
+}
+#locFilter{
+  margin-bottom:24px;
+}
+#depFilter{
+  border-top: 1px solid #efefef;
+  padding-top:24px;
 }
 
 .row{
@@ -231,6 +266,7 @@ body{
 .hide-job{
   display:none;
 }
+
 
 
 /* body select.select_box */
