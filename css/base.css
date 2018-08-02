@@ -142,7 +142,7 @@ body{
   text-align: center;
   margin: 0 auto;
   width: 100%;
-  bottom:48px;
+  bottom:56px;
 }
 
 .banner-link i{
@@ -175,28 +175,26 @@ body{
   background-color:white;
 }
 
-.job-list-ul{
-
+.wrapper-dark{
+  background-color:#525252;
 }
+
 
 .job-list-ul li{
   background-color: #fafafa;
   margin-bottom: 12px;
+}
+
+.job-list-ul li a{
   padding: 24px;
   font-size:24px;
-}
-
-.job-list-ul a li{
   color:#525252;
-  display:flex;
-
-  transition: 160ms ease;
 }
 
-.job-list-ul a li:hover{
+.job-list-ul li:hover{
   border-left: 4px solid #27989f;
 
-  transition: 200ms ease;
+  transition: 160ms ease;
 }
 
 .job-title{
@@ -209,3 +207,57 @@ body{
   -webkit-box-align: center;
   align-items: center;
 }
+
+#job-container{
+  min-height:50vh;
+}
+
+.row{
+  display: flex;
+}
+
+.openings-left-panel{
+  flex: 20%;
+  margin-right:12px;
+}
+
+.openings-right-panel{
+  flex: 80%;
+}
+
+.filter-form{
+}
+
+.hide-job{
+  display:none;
+}
+
+
+/* body select.select_box */
+body select {
+  display: block;
+  padding: 16px 70px 16px 13px !important;
+  width:100%;
+  height: auto !important;
+  border: 1px solid #e3e3e3;
+  border-radius: 3px;
+  background: url("https://image.ibb.co/iMeAJv/selectbox_arrow.png") right center no-repeat;
+  background-color: #fff;
+  color: #444444;
+  font-size: 12px;
+  line-height: 16px !important;
+  appearance: none;
+  /* this is must */
+  -webkit-appearance:
+  none; -moz-appearance: none;
+
+  margin-bottom:12px;
+  }
+  /* body select.select_box option */
+  body select option {
+    padding: 4px;
+    margin: 8px;
+  }
+  /* for IE and Edge */
+  select::-ms-expand { display: none; }
+  select:disabled::-ms-expand { background: #f60; }

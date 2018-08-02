@@ -34,10 +34,12 @@
 
   <section class="landing-banner">
     <div class="landing-container">
-      <span class="banner-header">The New Leader in Integration</span>
-      <span class="banner-text" id="banner-text"></span>
+      <div class="res-padding">
+        <span class="banner-header">The New Leader in Integration</span>
+        <span class="banner-text" id="banner-text"></span>
+      </div>
     </div>
-  <span class="banner-link">View Jobs<i class="fas fa-chevron-circle-down"></i></span>
+  <a href="#" class="banner-link" id="banner-link">View Openings<i class="fas fa-chevron-circle-down"></i></a>
   </section>
 
   <section class="wrapper-grey">
@@ -49,14 +51,39 @@
     </div>
   </section>
 
-  <section class="res-padding wrapper-container wrapper-white">
+  <section class="wrapper-container wrapper-white" id="job-container">
     <div class="res-padding">
       <div class="section-padding">
+
         <span class="section-header">Openings</span>
-        <ul class="job-list-ul"></ul>
+
+        <div class="row">
+          <div class="openings-left-panel">
+            <select class="filter-form" id="depFilter" onchange="filter()">
+              <option value="all">All Departments</option>
+            </select>
+            <select class="filter-form" id="locFilter" onchange="filter()">
+              <option value="all">All Locations</option>
+            </select>
+          </div>
+
+          <div class="openings-right-panel">
+            <ul class="job-list-ul"></ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
+  <footer class="wrapper-container wrapper-dark">
+    <div class="res-padding">
+      <div class="section-padding">
+        <ul>
+          <li><a href="">Workato</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 </body>
 
 <script src="js/base.js"></script>
