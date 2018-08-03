@@ -19,6 +19,7 @@ var activeLoc='all';
 $( document ).ready(function() {
     loadData();
     loadText();
+    $('body').addClass('toggle-body');
 });
 
 function loadData(){
@@ -158,7 +159,7 @@ $(function () {
 $(function () {
   $(document).scroll(function () {
 	  var $nav = $(".nav-bg");
-    var $content = $(".nav-link");
+    var $content = $(".nav-home ul li a");
     var $logo = $(".workato-logo");
 
 	  $nav.toggleClass('scrolled-bg', $(this).scrollTop() > $nav.height());
@@ -168,9 +169,17 @@ $(function () {
 });
 
 $(function () {
-  $("#banner-link").click(function (){
+  $(".banner-link-scroll").click(function (){
                 $('html, body').animate({
                     scrollTop: $("#job-container").offset().top
                 }, 800, 'swing');
+  });
+});
+
+$(function () {
+  $(".nav-hamburg").click(function (){
+                $('.side-nav').toggleClass('side-nav-extend');
+                $('.page').toggleClass('body-extend');
+                $("body").toggleClass('no-scroll');
   });
 });
