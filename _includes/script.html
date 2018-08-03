@@ -1,0 +1,9 @@
+<script src="{{ "/js/nav.js" | prepend: site.baseurl }}"></script>
+
+{% if page.url == "/" %}
+<script src="{{ "/js/base.js" | prepend: site.baseurl }}"></script>
+{% elsif page.url == "/apply/" %}
+<script src="{{ "/js/apply.js" | prepend: site.baseurl }}"></script>
+<!--<script src="https://boards.greenhouse.io/embed/job_board/js?for=workatodemo"></script>-->
+<script src="https://boards.greenhouse.io/embed/job_board/js?for=workato"></script>
+{% endif %}

@@ -17,6 +17,13 @@
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
 }
 
+.nav-dummy{
+  height:58px;
+  top:0;
+  width: 100%;
+  z-index: -10;
+}
+
 .nav-home .nav-bg{
   position: absolute;
   background-color: white;
@@ -101,8 +108,12 @@
   float:right;
 }
 
+.nav-home .nav-hamburg a{
+  color:#efefef;
+}
+
 .nav-hamburg a{
-  color:white;
+  color:#121212;
 }
 
 .nav-home .nav-link{
@@ -111,15 +122,15 @@
 }
 
 .nav-home .nav-link:hover{
-  color:#afafaf;
+  color:#afafaf !important;
 }
 
 .nav-home .scrolled-content{
-  color:#121212;
+  color:#121212 !important;
 }
 
 .nav-home .scrolled-content:hover{
-  color:#afafaf;
+  color:#afafaf !important;
 }
 
 .side-nav{
