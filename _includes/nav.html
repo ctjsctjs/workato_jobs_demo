@@ -1,10 +1,21 @@
+{% if page.url == "/" %}
+<nav class="nav-bar nav-home">
+  {% else %}
 <nav class="nav-bar">
+  {% endif %}
+
   <div class="nav-bg"></div>
   <ul class="res-padding">
     <li>
-      <a class="logo-wrapper" href="#">
-        <img class="workato-logo" src="img/workatoJobs_logo.svg">
-        <img class="workato-logo-color" src="img/workatoJobs_logo_color.svg">
+      <a class="logo-wrapper" href="{{ "/" | site.baseurl}}">
+
+        {% if page.url == "/" %}
+          <img class="workato-logo" src="{{ "/img/workatoJobs_logo.svg" | prepend: site.baseurl }}">
+          <img class="workato-logo-color" src="{{ "/img/workatoJobs_logo_color.svg" | prepend: site.baseurl }}">
+        {% else %}
+          <img class="workato-logo" src="{{ "/img/workatoJobs_logo_color.svg" | prepend: site.baseurl }}">
+        {% endif %}
+
       </a>
     </li>
     <li><a class="nav-link" href="#">Perks</a></li>

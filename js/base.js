@@ -157,7 +157,6 @@ $(function () {
 
 $(function () {
   $(document).scroll(function () {
-    console.log('test');
 	  var $nav = $(".nav-bg");
     var $content = $(".nav-link");
     var $logo = $(".workato-logo");

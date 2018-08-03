@@ -8,4 +8,6 @@
     </div>
 </footer>
 
-<script src="js/base.js"></script>
+{% if page.url == "/" %}
+<script src="{{ "/js/base.js" | prepend: site.baseurl }}"></script>
+{% endif %}
