@@ -1,0 +1,23 @@
+.process-banner{
+  background-color:#525252;
+  height:100vh;
+  width: 100%;
+  position: relative;
+
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.4) 100%), url('../img/process_banner.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.process-banner .container{
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto;
+}

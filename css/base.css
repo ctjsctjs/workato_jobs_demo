@@ -41,7 +41,7 @@ body{
   justify-content: center;
 }
 
-.landing-container{
+.landing-banner > .container{
   max-width: 560px;
   width: 100%;
   margin: 0 auto;
@@ -116,9 +116,22 @@ body{
   background-color:#212c3d;
 }
 
+.no-jobs {
+  padding: 36px;
+  font-size: 24px;
+  color: #121212;
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
+  width: 100%;
+}
+
+.no-jobs i{
+  margin-right:12px;
+}
 
 .job-li{
   border-top: 1px solid #efefef;
+  width: 100%;
 }
 
 .job-a{
@@ -126,6 +139,7 @@ body{
   font-size:24px;
   color:#121212;
   display: flex;
+  background-color: white;
 }
 
 .job-li:hover > a{
@@ -208,12 +222,6 @@ body{
   display:none;
 }
 
-.footer-text{
-  text-align: center;
-  color:#efefef;
-}
-
-
 .error-banner{
   background-color:#efefef;
   height:100vh;
@@ -265,7 +273,7 @@ body{
     font-size: 14px;
   }
 
-  .job-a{
+  .job-a, .no-jobs{
     font-size:18px;
   }
 

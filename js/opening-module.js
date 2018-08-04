@@ -1,34 +1,22 @@
 ---
 ---
-//var baseURL = 'https://ctjsctjs.github.io/workato_jobs_demo/apply/';
-var baseURL = '{{ "/apply/" | prepend: site.baseurl }}';
-var APIendpoint = 'https://boards-api.greenhouse.io/v1/boards/workato/departments';
-//var APIendpoint = 'https://boards-api.greenhouse.io/v1/boards/workatodemo/jobs';
-
-var bannerText = `We’re making work automation simple and accessible for everyone.
-We design products and deliver services that help people be more productive at their work — one recipe at a time.
-Join our team in all around the world and help serve businesses all over the world. Come be a part of something amazing! `
-
-var introText = `Workato is an award-winning cloud intelligent automation and integration platform with enterprise-grade capabilities and no coding required. Workato seamlessly integrates with over 300+ business applications and enables integration and task automation across all those apps.
-Recognised as a Leader in Forrester Wave iPaaS for Dynamic Integrations and Leader on Debut in Gartner’s Enterprise iPaaS Magic Quadrant, Workato is the only company that provides an easy, self-service way to integrate cloud and on-premise applications for all types of businesses —
-ranging from Fortune 500 Enterprises as well as SMBs.
-`
-var activeDep='all';
-var activeLoc='all';
-
 $( document ).ready(function() {
     loadData();
-    loadText();
-    $('body').addClass('toggle-body');
 });
 
+//Function to load departments, jobs and locations
 function loadData(){
+  //Base URL fpr application form link
+  var baseURL = '{{ "/apply/" | prepend: site.baseurl }}';
+  //API Endpoint to retrive job board
+  var APIendpoint = 'https://boards-api.greenhouse.io/v1/boards/workato/departments';
 
   $.get(APIendpoint,
-
   function( data ) {
+
     console.log(data);
 
+    //Declare variables
     var locationList=[];
     var departpmentName;
 
@@ -83,65 +71,54 @@ function loadData(){
   });
 }
 
-function loadText(){
-    $('#banner-text').html(bannerText);
-    $('#intro-text').html(introText);
-}
-
+//Function to change state of filter
 $(function () {
   $(document).on('click', ".filter-form li", function() {
 
+    //Declare variables
     var allLocLabel = 'All Offices';
     var allDepLabel = 'All Departments';
-
     var value = $(this).html();
     var filterClass =  $(this).attr('class');
-
     var activeLocElement;
     var activeDepElement;
-
     var activeLoc;
     var activeDep;
+    var totalJobCount=0;
+    var jobHiddenCount=0;
 
-    console.log('filterClass: ' + filterClass);
-
+    //Get current active location
     $('.filter-loc').each(function() {
       if ($(this).hasClass('active')){
         activeLoc = $(this).html();
         activeLocElement = $(this);
-        console.log('oldActiveLOC: ' + activeLoc);
-
       }
     })
+
+    //Get current active department
     $('.filter-dep').each(function() {
       if ($(this).hasClass('active')){
         activeDep = $(this).html();
         activeDepElement = $(this);
-        console.log('OldactiveDep: ' + activeDep);
       }
     })
 
+    //Change state of filter based on clicked filter
     if(filterClass == 'filter-loc'){
-      console.log('toggle filter-loc');
       activeLoc = value;
       $(this).addClass('active');
       $(activeLocElement).removeClass('active');
 
     } else if (filterClass == 'filter-dep'){
-      console.log('toggle filter-dep');
       activeDep = value;
       $(this).addClass('active');
       $(activeDepElement).removeClass('active');
     }
 
-    console.log('value: ' + value);
-    console.log('activeLocElement: ' + activeLocElement);
-    console.log('activeDepElement: ' + activeDepElement);
-    console.log('activeLoc: ' + activeLoc);
-    console.log('activeDep: ' + activeDep);
-
+    //Filter the job list by toggling display mode
     $('.job-a').each(function() {
 
+      totalJobCount+=1;
       var elementDep = $(this).find('.job-dep').html();
       var elementLoc = $(this).find('.job-location').html();
 
@@ -150,28 +127,17 @@ $(function () {
         $(this).parent().removeClass('hide-job');
       } else {
         $(this).parent().addClass('hide-job');
+        jobHiddenCount+=1;
       }
-
     })
+
+    console.log(totalJobCount);
+    console.log(jobHiddenCount);
+
+    if(totalJobCount == jobHiddenCount){
+      $('.no-jobs').removeClass('hide-job');
+    } else {
+      $('.no-jobs').addClass('hide-job');
+    }
   })
-});
-
-$(function () {
-  $(document).scroll(function () {
-	  var $nav = $(".nav-bg");
-    var $content = $(".nav-home ul li a");
-    var $logo = $(".workato-logo");
-
-	  $nav.toggleClass('scrolled-bg', $(this).scrollTop() > $nav.height());
-    $content.toggleClass('scrolled-content', $(this).scrollTop() > $nav.height());
-    $logo.toggleClass('scrolled-logo', $(this).scrollTop() > $nav.height());
-	});
-});
-
-$(function () {
-  $(".banner-link-scroll").click(function (){
-                $('html, body').animate({
-                    scrollTop: $("#job-container").offset().top
-                }, 800, 'swing');
-  });
 });
