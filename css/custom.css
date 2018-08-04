@@ -3,7 +3,7 @@ body{
 }
 
 p{
-  text-align: left !important;\
+  text-align: left !important;
   line-height: 1.5;
   font-size: 14px;
 }
@@ -33,7 +33,7 @@ p{
   display:none;
 }
 
-.app-title{
+#app_body h1{
   font-size:36px;
   font-weight: 400;
 }
