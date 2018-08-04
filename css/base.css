@@ -292,16 +292,24 @@ body{
     padding: 0 12px;
   }
 
+  .section-padding{
+    padding: 48px 0;
+  }
+
+  .section-header{
+    margin-bottom: 24px;
+  }
+
   .banner-header{
-    font-size:24px;
+    font-size:30px;
   }
 
   .banner-text{
-    font-size:14px;
+    font-size:16px;
   }
 
   .banner-link{
-    font-size:16px;
+    font-size:20px;
   }
 
   .section-header{
