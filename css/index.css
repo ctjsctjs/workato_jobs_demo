@@ -1,0 +1,24 @@
+#intro-left-panel, #culture-right-panel{
+  flex: 60%;
+  text-align:left;
+}
+
+#intro-right-panel, #culture-left-panel{
+  flex: 40%;
+  text-align:left;
+}
+
+
+.culture-nav li{
+  padding: 12px 0;
+  cursor: pointer;
+  transition: 160ms linear;
+
+}
+
+.culture-nav li:hover{
+  color:#3fc3cc;
+  border-left: 2px solid #3fc3cc;
+  padding-left:24px;
+  transition: 160ms linear;
+}

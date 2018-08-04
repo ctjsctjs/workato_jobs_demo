@@ -1,16 +1,21 @@
-var content = {
+{
   'copy':{
-    'bannerText':`
+    'bannerText':{
+      'id':'bannerText',
+      'content':`
       We’re making work automation simple and accessible for everyone.
       We design products and deliver services that help people be more productive at their work — one recipe at a time.
       Join our team in all around the world and help serve businesses all over the world.
-      `,
-
-    'introText':`
+      `
+    },
+    'introText':{
+      'id':'bannerText',
+      'content':`
       Workato is an award-winning cloud intelligent automation and
       integration platform with enterprise-grade capabilities and no coding required. Workato seamlessly integrates with over 300+ business applications and enables integration and task automation across all those apps.
       `
     },
+  },
   'culture':{
 
     'Getting Things Done':`
@@ -60,49 +65,3 @@ var content = {
     `
   }
 }
-
-$( document ).ready(function() {
-    loadText();
-    loadCulture();
-    $('body').addClass('toggle-body');
-});
-
-function loadText(){
-    $('#banner-text').append(content['copy']['bannerText']);
-    $('#intro-left-panel').append(content['copy']['introText']);
-}
-
-function loadCulture(){
-
-    initContent=false;
-
-    $.each(content['culture'], function(label, content) {
-      //Create elements and append to list
-      var ul = $( "#culture-nav" );
-      var li = $('<li>').attr('class', 'cult-li').appendTo(ul);
-      $(li).html(label);
-
-      if (initContent == false){
-        var output = $('#culture-right-panel');
-        $(output).html(content);
-        initContent = true;
-      }
-    })
-}
-
-$(function () {
-  $(".cult-li").hover(function() {
-    var label = $( this ).html();
-    var fetchedContent = content['culture'][label];
-    var output = $('#culture-right-panel');
-    $(output).html(fetchedContent);
-  });
-});
-
-$(function () {
-  $(".banner-link-scroll").click(function (){
-                $('html, body').animate({
-                    scrollTop: $("#job-container").offset().top
-                }, 800, 'swing');
-  });
-});

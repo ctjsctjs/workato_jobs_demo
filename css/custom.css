@@ -143,7 +143,6 @@ div.field .select2-container-multi, #application input, #application select, #cu
   transition: 160ms ease;
 }
 
-
 div.field:nth-child(even){
   width: calc(50% - 6px);
   float: left;

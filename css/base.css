@@ -88,17 +88,21 @@ body{
 }
 
 .section-header{
-  text-align: center;
-  font-size:24px;
+  font-size:36px;
   color:#121212;
-  font-weight:700;
-  margin-bottom: 48px;
+  font-weight:400;
+  margin-bottom: 24px;
+}
+
+.text-left{
+  text-align: left;
 }
 
 .section-content{
   color:#121212;
   text-align: center;
   line-height: 1.8;
+  font-size:20px;
 }
 
 .section-padding{
