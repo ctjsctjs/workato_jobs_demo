@@ -1,2 +1,12 @@
 #footer{
+  display:none;
+}
+
+#main{
+
+}
+
+#main #app_body{
+  max-width: none;
+  padding-left: 0;
 }
