@@ -8,12 +8,17 @@ p{
   font-size: 14px;
 }
 
+
 #wrapper{
   max-width: 680px;
 }
 
 #main{
 
+}
+
+#main hr{
+  display:none;
 }
 
 #app_body{
@@ -37,11 +42,143 @@ p{
   display:none;
 }
 
-#app_body h1{
+#header > h1{
   font-size:36px;
   font-weight: 400;
 }
 
+#content ul:not(.list-no-style){
+    list-style: none;
+    padding:0;
+}
+
+#content ul:not(.list-no-style) li {
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#content ul:not(.list-no-style) li::before {
+    content: '— ';
+    margin-right:12px;
+    margin-top:14px;
+    line-height: 1.8;
+}
+
+#content > h1{
+  font-size:24px;
+  font-weight: 400;
+
+  border-top: 1px solid #efefef;
+  margin-top: 24px;
+  padding-top: 24px;
+}
+
+#application .heading{
+  font-size:24px;
+  font-weight: 400;
+}
+
+#main_fields .heading{
+  font-size:36px;
+  font-weight: 400;
+  color: #27989f;
+  width: 100%;
+  text-align: center;
+}
+
+.required-fields{
+  display:none;
+}
+
+#application{
+  background-color: transparent;
+  padding:0;
+  max-width: none;
+  width: 100%;
+  border-top: 1px solid #efefef;
+  margin-top: 24px;
+  padding-top: 24px;
+}
+
+#main_fields{
+}
+
+#main_fields div.field label, #custom_fields div.field label, #demographic_questions div.field label, #eeoc_fields div.field label{
+  width: 100% !important;
+  float:none;
+  font-size:14px;
+  display: block;
+  text-align: left;
+  line-height: 1.4;
+}
+
+#main_fields div.field .field-error-msg, #eeoc_fields div.field .field-error-msg,
+#custom_fields div.field label .field-error-msg{
+  padding-left:0;
+  font-size: 12px;
+}
+
+#main_fields div.field, #custom_fields div.field{
+  margin-top:12px;
+  clear:none;
+  overflow: hidden;
+}
+
 #footer{
   display:none;
+}
+
+#main_fields div.field input[type=text], #main_fields div.field textarea, #main_fields div.field .text-field, #main_fields #custom_fields div.field .select2-container-multi,
+#custom_fields #main_fields div.field .select2-container-multi, #custom_fields div.field input[type=text], #custom_fields div.field textarea, #custom_fields div.field .text-field,
+#custom_fields div.field .select2-container-multi, #demographic_questions div.field input[type=text], #demographic_questions div.field textarea,
+#demographic_questions div.field .text-field, #demographic_questions #custom_fields div.field .select2-container-multi, #custom_fields #demographic_questions div.field .select2-container-multi,
+#eeoc_fields div.field input[type=text], #eeoc_fields div.field textarea, #eeoc_fields div.field .text-field, #eeoc_fields #custom_fields div.field .select2-container-multi, #custom_fields #eeoc_fields
+div.field .select2-container-multi, #application input, #application select, #custom_fields div.field input[type=text], #custom_fields div.field textarea, #custom_fields div.field .text-field, #custom_fields div.field .select2-container-multi{
+  padding: 8px 8px;
+  border-radius: 4px;
+  width:100% !important;
+  border: solid 1px #efefef;
+  box-sizing: border-box;
+  margin-top:6px;
+  transition: 160ms ease;
+}
+
+
+div.field:nth-child(even){
+  width: calc(50% - 6px);
+  float: left;
+}
+
+div.field:nth-child(odd){
+  width: calc(50% - 6px);
+  float: right;
+}
+
+#submit_buttons{
+  float:none;
+  width: 100%;
+}
+
+#submit_buttons .button{
+  background-color: #27989f;
+  /* border: 1px solid #efefef; */
+  border-radius: 4px;
+  font-size:16px;
+  color:#efefef;
+  background-image: none;
+  padding:20px;
+  height: auto;
+  text-shadow: none;
+
+  transition: 160ms ease;
+}
+
+#submit_buttons .button:hover{
+  background-color: #22858b;
+  /* border: 1px solid #efefef; */
+  color:#efefef;
+  background-image: none;
+  text-shadow: none;
+
+  transition: 160ms ease;
 }
