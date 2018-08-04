@@ -1,37 +1,35 @@
 {% if page.url == "/" %}
   <nav class="nav-bar nav-home">
+    <div class="nav-bg"></div>
+    <ul class="res-padding">
+      <li>
+        <a class="logo-wrapper" href="{{ "/" | site.baseurl}}">
+          <img class="workato-logo" src="{{ "/img/workatoJobs_logo.svg" | prepend: site.baseurl }}">
+          <img class="workato-logo-color" src="{{ "/img/workatoJobs_logo_color.svg" | prepend: site.baseurl }}">
+        </a>
+      </li>
+      <!--<li><a class="nav-link" href="/perks/">Perks</a></li>
+      <li><a class="nav-link" href="/process/">Hiring Process</a></li>-->
+      <li><a class="nav-link banner-link-scroll" href="#" id="banner-link">Openings</a></li>
+      <li class="return-link"><a class="nav-link" target='_blank' href="https://workato.com">Return to Workato</a></li>
+      <li class="nav-hamburg" ><a href="#/"><i class="fas fa-bars"></i></a></li>
+    </ul>
+  </nav>
 {% else %}
   <nav class="nav-bar">
-{% endif %}
-
   <div class="nav-bg"></div>
   <ul class="res-padding">
     <li>
       <a class="logo-wrapper" href="{{ "/" | site.baseurl}}">
-
-        {% if page.url == "/" %}
-          <img class="workato-logo" src="{{ "/img/workatoJobs_logo.svg" | prepend: site.baseurl }}">
-          <img class="workato-logo-color" src="{{ "/img/workatoJobs_logo_color.svg" | prepend: site.baseurl }}">
-        {% else %}
           <img class="workato-logo" src="{{ "/img/workatoJobs_logo_color.svg" | prepend: site.baseurl }}">
-        {% endif %}
-
       </a>
     </li>
-    <li><a class="nav-link" href="/perks/">Perks</a></li>
-    <li><a class="nav-link" href="/process/">Hiring Process</a></li>
-
-    {% if page.url == "/" %}
-    <li><a class="nav-link banner-link-scroll" href="#" id="banner-link">Openings</a></li>
-    {% else %}
+    <!--<li><a class="nav-link" href="/perks/">Perks</a></li>
+    <li><a class="nav-link" href="/process/">Hiring Process</a></li>-->
     <li><a class="nav-link" href="{{ "/#job-container" | site.baseurl}}">Openings</a></li>
-    {% endif %}
-
     <li class="return-link"><a class="nav-link" target='_blank' href="https://workato.com">Return to Workato</a></li>
     <li class="nav-hamburg" ><a href="#/"><i class="fas fa-bars"></i></a></li>
   </ul>
 </nav>
-
-{% if page.url != "/" %}
 <div class="nav-dummy"></div>
 {% endif %}
