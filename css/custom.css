@@ -19,7 +19,15 @@ body{
   padding-right: 0px;
 }
 
-#app-title{
+#header a{
+  display:none;
+}
+
+.company-name{
+  display:none;
+}
+
+.app-title{
   font-size:36px;
   font-weight: 400;
 }
