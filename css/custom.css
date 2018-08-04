@@ -1,12 +1,29 @@
-#footer{
-  display:none;
+body{
+  font-family: 'Lato', 'Arial', sans-serif;
 }
 
 #main{
 
 }
 
-#main #app_body{
+#main {
+
+}
+
+#app_body{
   max-width: none;
-  padding-left: 0;
+  padding-left: 0 !important;
+}
+
+#header{
+  padding-right: 0px;
+}
+
+#app-title{
+  font-size:36px;
+  font-weight: 400;
+}
+
+#footer{
+  display:none;
 }
