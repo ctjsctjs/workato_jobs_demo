@@ -1,18 +1,9 @@
-{% if page.url == "/apply/" %}
 <nav class="nav-bar">
-{% else %}
-<nav class="nav-bar nav-home">
-{% endif %}
 <div class="nav-bg"></div>
 <ul class="res-padding">
   <li>
     <a class="logo-wrapper" href="{{ "/" | site.baseurl}}">
-        {% if page.url == "/apply/" %}
-        <img class="workato-logo" src="{{ "/img/workatoJobs_logo_color.svg" | prepend: site.baseurl }}">
-        {% else %}
-        <img class="workato-logo" src="{{ "/img/workatoJobs_logo.svg" | prepend: site.baseurl }}">
-        <img class="workato-logo-color" src="{{ "/img/workatoJobs_logo_color.svg" | prepend: site.baseurl }}">
-        {% endif %}
+        <img class="workato-logo" src="{{ '/img/workatoJobs_logo_color.svg' | prepend: site.baseurl }}">
     </a>
   </li>
   <!-- <li><a class="nav-link" href="/perks/">Perks</a></li> -->
@@ -22,6 +13,4 @@
   <li class="nav-hamburg" ><a href="#/"><i class="fas fa-bars"></i></a></li>
 </ul>
 </nav>
-{% if page.url == "/apply/" %}
-<div class="nav-dummy"></div>
-{% endif %}
+<div id="nav-dummy" class="nav-dummy"></div>
