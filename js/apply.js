@@ -1,5 +1,8 @@
 ---
 ---
+/*
+Function to get URL Parameters
+*/
 function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
         sURLVariables = sPageURL.split('&'),
@@ -14,7 +17,10 @@ function getUrlParameter(sParam) {
         }
     }
 };
-var test = getUrlParameter('gh_jid');
-if (test==undefined){
+
+/*
+If parameter is empty, redirect to 404 page
+*/
+if (getUrlParameter('gh_jid')==undefined){
   window.location.replace('{{ "/404/" | prepend: site.baseurl }}');
 }

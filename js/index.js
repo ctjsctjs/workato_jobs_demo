@@ -1,3 +1,6 @@
+/*
+Store content for index.html
+*/
 var content = {
   'copy':{
     'bannerText':`
@@ -64,45 +67,58 @@ var content = {
 $( document ).ready(function() {
     loadText();
     loadCulture();
-    $('body').addClass('toggle-body');
 });
 
+/*
+  Function to load text content
+*/
 function loadText(){
-    $('#banner-text').append(content['copy']['bannerText']);
-    $('#intro-left-panel').append(content['copy']['introText']);
+    $("#banner-text").append(content["copy"]["bannerText"]);
+    $("#intro-left-panel").append(content["copy"]["introText"]);
 }
 
+/*
+  Function to load culture navigation tabs
+*/
 function loadCulture(){
 
     initContent=false;
 
-    $.each(content['culture'], function(label, content) {
+    $.each(content["culture"], function(label, content) {
+
       //Create elements and append to list
       var ul = $( "#culture-nav" );
-      var li = $('<li>').attr('class', 'cult-li').appendTo(ul);
+      var li = $("<li>").attr("class", "cult-li").appendTo(ul);
       $(li).html(label);
 
       if (initContent == false){
-        var output = $('#culture-right-panel');
+        var output = $("#culture-right-panel");
         $(output).html(content);
         initContent = true;
       }
     })
 }
 
+/*
+  Function to change "culture" body content on "culture" tab hover
+*/
 $(function () {
   $(".cult-li").hover(function() {
     var label = $( this ).html();
-    var fetchedContent = content['culture'][label];
-    var output = $('#culture-right-panel');
+    var fetchedContent = content["culture"][label];
+    var output = $("#culture-right-panel");
     $(output).html(fetchedContent);
   });
 });
 
+/*
+  Function to add onClick to "View Openings"
+  to scroll to openings section
+*/
 $(function () {
   $(".banner-link-scroll").click(function (){
-                $('html, body').animate({
+                $("html, body").animate({
                     scrollTop: $("#job-container").offset().top
-                }, 800, 'swing');
+                }, 800, "swing");
   });
 });

@@ -12,7 +12,10 @@ $( document ).ready(function() {
     loadText();
 });
 
+/*
+  Function to load text content
+*/
 function loadText(){
-    $('#banner-header').html(bannerHeader);
-    $('#banner-text').html(bannerText);
+    $("#banner-header").html(bannerHeader);
+    $("#banner-text").html(bannerText);
 }

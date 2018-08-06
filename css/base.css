@@ -253,3 +253,7 @@ body{
   text-align: center;
   font-size:20px;
 }
+
+.temp-centralise{
+  text-align: center !important;
+}
