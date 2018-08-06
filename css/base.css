@@ -193,7 +193,7 @@ body{
 .filter-form .active{
   color:#3fc3cc;
   border-left: 2px solid #3fc3cc;
-  padding-left:24px;
+  padding-left:16px;
   transition: 160ms linear;
 }
 
