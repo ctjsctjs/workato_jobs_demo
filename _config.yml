@@ -4,8 +4,8 @@ description: >- # this means to ignore newlines until "baseurl:"
   We design products and deliver services that help people
   be more productive at their work — one recipe at a time.
   Join our team in all around the world and help serve businesses all over the world.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http:jobs.workato.com" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/workato_jobs_demo/" # the subpath of your site, e.g. /blog
+url: "https://ctjsctjs.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 # markdown: kramdown
