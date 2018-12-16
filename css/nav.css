@@ -94,6 +94,11 @@
   transition: 100ms linear;
 }
 
+.nav-home ul li:first-child{
+  margin-left:0;
+  padding-left:0;
+}
+
 .nav-link{
   color:#121212;
   transition: 160ms linear;

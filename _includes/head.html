@@ -15,14 +15,9 @@
   {% if page.url == "/" %}
   <link rel="stylesheet" href="{{ '/css/index.css' | prepend: site.baseurl }}">
 
-  {% elsif page.url == "/openings/" %}
-  <link rel="stylesheet" href="{{ '/css/openings.css' | prepend: site.baseurl }}">
-
-  {% elsif page.url == "/perks/" %}
-  <link rel="stylesheet" href="{{ '/css/perks.css' | prepend: site.baseurl }}">
-
-  {% elsif page.url == "/process/" %}
-  <link rel="stylesheet" href="{{ '/css/process.css' | prepend: site.baseurl }}">
+  {% else %}
+  <link rel="stylesheet" href="{{ '/css/location.css' | prepend: site.baseurl }}">
+  
   {% endif %}
 
   <link rel="stylesheet" href="{{ '/css/responsive.css' | prepend: site.baseurl }}">

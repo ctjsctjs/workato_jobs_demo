@@ -24,3 +24,4 @@ If parameter is empty, redirect to 404 page
 if (getUrlParameter('gh_jid')==undefined){
   window.location.replace('{{ "/404/" | prepend: site.baseurl }}');
 }
+

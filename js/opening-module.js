@@ -1,137 +1,103 @@
 ---
 ---
-$( document ).ready(function() {
+  $(document).ready(function () {
     loadData();
-});
+  });
 
 /*
 Function to load departments, jobs and locations
 */
 
-function loadData(){
+function loadData() {
   //Base URL fpr application form link
   var baseURL = "{{ '/apply/' | prepend: site.baseurl }}";
   //API Endpoint to retrive job board
-  var APIendpoint = "https://boards-api.greenhouse.io/v1/boards/workato/departments";
+
+  var APIendpoint = "https://boards-api.greenhouse.io/v1/boards/workato/offices";
+  var officeId;
+  var officeName = $("#banner-header").html();
 
   $.get(APIendpoint,
-  function( data ) {
+    function (data) {
+      //Each office
+      $.each(data["offices"], function (i, office) {
+        console.log(office["name"]);
 
-    //Declare variables
-    var locationList=[];
-    var departpmentName;
+        if (office["name"] == officeName) {
 
-    $.each(data["departments"], function(i, dep) {
+          //Each department
+          $.each(office["departments"], function (j, dep) {
 
-      departmentName = dep["name"];
+            depName = dep["name"];
 
-      $.each(dep["jobs"], function(i, item) {
+            //Each job
+            $.each(dep["jobs"], function (k, job) {
+              //Get content from JSON object
+              var id = job["id"];
+              var title = job["title"];
+              var url = job["absolute_url"];
+              var link = baseURL + "?gh_jid=" + id;
 
-        //Get content from JSON object
-        var id = item["id"];
-        var title = item["title"];
-        var location = item["location"]["name"];
-        var url = item["absolute_url"];
-        var link = baseURL  + "?gh_jid=" + id;
+              genListElement(title, link, depName);
+            });
 
-        //Create elements and append to list
-        var ul = $( ".job-list-ul" );
-        var li = $("<li>").attr("class", "job-li").appendTo(ul);
-        var a = $("<a>").attr({"href": link, "class": "job-a"}).appendTo(li);
-        var spanTitle = $("<span>").attr("class", "job-title").html(title).appendTo(a);
-        var spanLocation = $("<span>").attr("class", "job-location").html(location).appendTo(a);
-        var spanDep = $("<span>").attr({ "style": "display:none;", "class": "job-dep" }).html(departmentName).appendTo(a);
+            //Add department into options if there are valid jobs
+            if (dep["jobs"].length > 0) {
+              $("#depFilter").append($("<li>", {
+                text: depName,
+                class: "filter-dep"
+              }));
+            }
+          })
+        }
+      })
+    })
 
-        //Add location option in filter if has not already been added
-        if (locationList.indexOf(location) === -1){
-          locationList.push(location);
-          $("#locFilter").append($("<li>", {
-            text:location,
-            class:"filter-loc"
-          }));
+  function genListElement(title, link, dep) {
+    //Create elements and append to list
+    var ul = $(".job-list-ul");
+    var li = $("<li>").attr("class", "job-li").appendTo(ul);
+    var a = $("<a>").attr({ "href": link, "class": "job-a" }).appendTo(li);
+    var spanTitle = $("<span>").attr("class", "job-title").html(title).appendTo(a);
+    var spanLocation = $("<span>").attr("class", "job-dep").html(dep).appendTo(a);
+  }
+
+  /*
+  Function to change state of filter
+  */
+  $(function () {
+    $(document).on("click", ".filter-form li", function () {
+
+      //Declare variables
+      var allDepLabel = "All Departments";
+      var value = $(this).html();
+      var activeDepElement;
+      var activeDep;
+  
+      //Get current active department
+      $(".filter-dep").each(function () {
+        if ($(this).hasClass("active")) {
+          activeDep = $(this).html();
+          activeDepElement = $(this);
         }
       });
 
-      //Add department into options if there are valid jobs
-      if (dep["jobs"].length > 0){
-        $("#depFilter").append($("<li>", {
-          text:departmentName,
-          class:"filter-dep"
-        }));
-      }
-    });
-  });
-}
-
-/*
-Function to change state of filter
-*/
-$(function () {
-  $(document).on("click", ".filter-form li", function() {
-
-    //Declare variables
-    var allLocLabel = "All Offices";
-    var allDepLabel = "All Departments";
-    var value = $(this).html();
-    var filterClass =  $(this).attr("class");
-    var activeLocElement;
-    var activeDepElement;
-    var activeLoc;
-    var activeDep;
-    var totalJobCount=0;
-    var jobHiddenCount=0;
-
-    //Get current active location
-    $(".filter-loc").each(function() {
-      if ($(this).hasClass("active")){
-        activeLoc = $(this).html();
-        activeLocElement = $(this);
-      }
-    })
-
-    //Get current active department
-    $(".filter-dep").each(function() {
-      if ($(this).hasClass("active")){
-        activeDep = $(this).html();
-        activeDepElement = $(this);
-      }
-    })
-
-    //Change state of filter based on clicked filter
-    if(filterClass == "filter-loc"){
-      activeLoc = value;
-      $(this).addClass("active");
-      $(activeLocElement).removeClass("active");
-
-    } else if (filterClass == "filter-dep"){
+      //Change state of filter based on clicked filter
       activeDep = value;
       $(this).addClass("active");
       $(activeDepElement).removeClass("active");
-    }
 
-    //Filter the job list by toggling display mode
-    $(".job-a").each(function() {
+      //Filter the job list by toggling display mode
+      $(".job-a").each(function () {
 
-      totalJobCount+=1;
-      var elementDep = $(this).find(".job-dep").html();
-      var elementLoc = $(this).find(".job-location").html();
+        var elementDep = $(this).find(".job-dep").html();
 
-      if ((elementDep==activeDep || activeDep==allDepLabel)&&
-        (elementLoc==activeLoc || activeLoc==allLocLabel)){
-        $(this).parent().removeClass("hide-job");
-      } else {
-        $(this).parent().addClass("hide-job");
-        jobHiddenCount+=1;
-      }
+        if ((elementDep == activeDep || activeDep == allDepLabel)) {
+          $(this).parent().removeClass("hide-job");
+        } else {
+          $(this).parent().addClass("hide-job");
+        }
+      })
     })
-
-    console.log(totalJobCount);
-    console.log(jobHiddenCount);
-
-    if(totalJobCount == jobHiddenCount){
-      $(".no-jobs").removeClass("hide-job");
-    } else {
-      $(".no-jobs").addClass("hide-job");
-    }
   })
-});
+};

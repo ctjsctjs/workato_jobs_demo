@@ -2,48 +2,97 @@
 layout: default
 ---
 
-<section class="landing-banner">
-  <div class="container">
-    <div class="res-padding">
+<section class="banner" id="landing-banner">
+  <div class="res-padding">
+    <div class="banner-container">
       <h1 class="banner-header">The New Leader in Integration</h1>
       <h2 class="banner-text" id="banner-text"></h2>
     </div>
+    <div class="banner-actions">
+      <a href="#" class="banner-link banner-link-scroll" id="banner-link-loc">View Locations</a>
+    </div>
   </div>
-<a href="#" class="banner-link banner-link-scroll" id="banner-link">View Openings<i class="fas fa-chevron-circle-down"></i></a>
 </section>
 
 <section class="wrapper-white">
   <div class="res-padding">
     <div class="section-padding">
       <div class="row">
-        <!-- <div id="intro-right-panel">
-          <img src="{{ '/img/workato_icon.svg'| prepend: site.baseurl }}">
-        </div>
-        <div class="section-content" id="intro-left-panel">
-          <h1 class="section-header tex"t-left">About Workato</h1>
-        </div> -->
-        <div class="section-content temp-centralise" id="intro-left-panel">
+        <div class="section-content" id="intro-content">
           <h1 class="section-header">About Workato</h1>
         </div>
       </div>
     </div>
   </div>
 </section>
-<section class="wrapper-grey">
+
+<section class="banner" id="perks-banner">
   <div class="res-padding">
     <div class="section-padding">
       <div class="row">
-        <h1 class="section-header text-left">Our Culture</h1>
-      </div>
-      <div class="row">
-        <div class="section-content" id="culture-left-panel">
-          <ul class="culture-nav" id="culture-nav">
-          </ul>
-        </div>
-        <div class="section-content" id="culture-right-panel">
+        <div class="section-content">
+          <h1 class="section-header">Perks and benefits</h1>
+          <div class="grid perks-container">
+            <div>
+              <span>Work hard, play hard</span>
+              <p>We take care of our employees in more ways than one. Our competitive benefits package includes premium
+                medical, dental, and vision coverage for employees and their dependents. We also offer up to 18 weeks
+                of paid parental leave, daily gourmet lunches, strong cold brew, and seasonal wellness programming,
+                including meditation, yoga, massages, and nutritionist sessions. And so many snacks.</p>
+            </div>
+            <div>
+              <span>Keep in shape</span>
+              <p>We believe that quality time outside the office is vital to our employees’ satisfaction at work.
+                That’s why our flexible PTO plan encourages team members to take time off so they can come back
+                refreshed. Employees also get two free lifetime Squarespace sites to pursue their creative passions and
+                side hustles.</p>
+            </div>
+            <div>
+              <span>Never go hungry</span>
+              <p>We’re dedicated to ensuring all employees have the information they need to do their jobs well. Our
+                monthly All Hands meetings, email newsletters, and CEO Office Hours are just a few of the programs we
+                run to bring our three offices together and share key aspects of the business across the entire
+                organization.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-{% include opening-module.html %}
+
+<section class="wrapper-white">
+  <div class="res-padding">
+    <div class="section-padding">
+      <div class="section-content filter-content" id="location-content">
+        <h1 class="section-header">Locations</h1>
+        <div class="grid loc-container">
+          <div class="col-left">
+            <a href="/singapore/">
+              <div class="loc-content">Singapore</div>
+              <div class="bg-wrapper" id="singapore"></div>
+            </a>
+            <a href="/cupertino/">
+              <div class="loc-content">Cupertino, California</div>
+              <div class="bg-wrapper" id="cupertino"></div>
+            </a>
+            <a href="/moscow/">
+              <div class="loc-content">Moscow, Russia</div>
+              <div class="bg-wrapper" id="moscow"></div>
+            </a>
+          </div>
+          <div class="col-right">
+            <a href="/manila/">
+              <div class="loc-content">Alabang, Metro Manila</div>
+              <div class="bg-wrapper" id="manila"></div>
+            </a>
+            <a href="/ny-boston/">
+              <div class="loc-content">New York/Boston</div>
+              <div class="bg-wrapper" id="ny-boston"></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

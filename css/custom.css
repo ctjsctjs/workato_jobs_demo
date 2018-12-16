@@ -24,6 +24,7 @@ p{
 #app_body{
   max-width: none;
   padding-left: 0 !important;
+  display:flex;
 }
 
 #header{
